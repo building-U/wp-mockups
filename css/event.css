@@ -1,0 +1,9 @@
+.hidden {
+    display: none;
+}
+
+.wrapper {
+    border: 1px solid red;
+    width: 80%;
+    margin-left: 10%;
+}
