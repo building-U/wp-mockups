@@ -4,9 +4,506 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
     
+    <title>Event</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        /* Night Zone */
+        @font-face {
+            font-family: "NightZone";
+            src: url('./assets/font/Night\ Zone.ttf');
+        }
+
+        :root {
+            --button-bg: #eef08d;
+            --button-border: #5f9d99;
+            --banner-text: #855937;
+            --cta-bg: #1194c8;
+        }
+        
+
+        .event {
+            background-image: url('./assets/background.png');
+            background-size: 100% 100vh;
+        }
+
+        .event .wrapper {
+            width: 80%;
+            margin-left: 10%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* == HEADER == */
+        .event .hero {
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5% 0;
+        }
+
+        .event .hero-img {
+            width: 90%;
+        }
+
+        /* == QUESTION SECTION == */
+        .event .question-section, .event .partners-section, .event .cta-section {
+            /* border: 1px solid navy; */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* == QUESTION == */
+        .event .initial {
+            transition: 1s all ease;
+        }
+        .event .question {
+            /* border: 1px solid red; */
+            width: 90%;
+            margin: 2% 5%;
+            font-size: 0.6em;
+        }
+
+        .event .question-title {
+            margin-top: 2%;
+            margin-left: 4%;
+        }
+
+        /* == ANSWER LIST == */
+        .answer-points {
+            align-self: flex-start;
+            list-style: none;
+            padding-top: 5%;
+        }
+
+        .answer-points li {
+            /* border: 1px solid red; */
+            display: flex;
+            align-items: center;
+            width: 100%;
+            
+        }
+
+        .answer-points li:before {
+            display: block;
+            flex-shrink: 0;
+            width: 25px;
+            height: 25px;
+            background: url('/assets/blue_arrow.png') no-repeat left center;
+            background-size: contain;
+            content: '';
+            margin-right: 10px;;
+        }
+
+        /* == LEARN MORE == */
+        .question .learn_more {
+            position: relative;
+            background-color: var(--button-bg);
+            width: 70%;
+            margin: 8% 15%;
+            padding: 3% 0;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-top: 2px solid var(--button-border);
+            cursor: pointer;           
+        }
+
+        .question .bubble_right::before {
+            content: '';
+            background: url('/assets/small_speech_bubble.png') no-repeat left;
+            background-size: cover;
+            width: 40px;
+            height: 30px;
+            position: absolute;
+            right: 25px;
+            top: -15px;
+        }
+
+        .question .bubble_left::before {
+            content: '';
+            background: url('/assets/small_speech_bubble_flip.png') no-repeat left;
+            background-size: cover;
+            width: 40px;
+            height: 30px;
+            position: absolute;
+            left: 15px;
+            top: -15px;
+        }
+
+        .question .learn_more_left {
+            border-left: 2px solid var(--button-border);
+        }
+
+        .question .learn_more_right {
+            border-right: 2px solid var(--button-border);
+        }
+
+        .question .learn_more_wave_right {
+            border-bottom: 2px solid var(--button-border);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 90%;
+        }
+
+        .question .learn_more_wave_left {
+            border-bottom: 2px solid var(--button-border);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 90%;
+        }
+
+        .question .dog_right::after {
+            content: '';
+            background: url('/assets/dog.png') no-repeat right center;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            right: -20px;
+            top: -15px;            
+        }
+
+        .question .beaver_left::after {
+            content: '';
+            background: url('/assets/beaver.png') no-repeat left center;
+            background-size: cover;
+            width: 70px;
+            height: 60px;
+            position: absolute;
+            left: -40px;
+            top: -15px;            
+        }
+
+        .question .hippo_left::after {
+            content: '';
+            background: url('/assets/hippo.png') no-repeat left center;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: -25px;
+            top: -12px;            
+        }
+
+        .question .peacock_right::after {
+            content: '';
+            background: url('/assets/peacock.png') no-repeat right center;
+            background-size: cover;
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            right: -20px;
+            top: -15px;            
+        }
+
+        .question .goat_right::after {
+            content: '';
+            background: url('/assets/goat.png') no-repeat right center;
+            background-size: cover;
+            width: 40px;
+            height: 50px;
+            position: absolute;
+            right: -20px;
+            top: -15px;            
+        }
+        
+        /* == COMIC BUBBLE == */
+        .bubble {
+            position: relative;
+            background: #fff;
+            border-radius: 40px;
+            border: 3px solid black;
+            padding: 12px;
+        }
+
+        .bubble-bottom-right:before {
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;            
+            border-top: 20px solid black;
+            bottom: -20px;
+            right: 86px;
+        }
+
+        .bubble-bottom-right:after {
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;            
+            border-top: 16px solid white;
+            bottom: -16px;
+            right: 90px;
+        }
+
+        .bubble-bottom-left:before {
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;            
+            border-top: 20px solid black;
+            bottom: -20px;
+            left: 86px;
+        }
+
+        .bubble-bottom-left:after {
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;            
+            border-top: 16px solid white;
+            bottom: -16px;
+            left: 90px;
+        }
+
+        /* == PARTNERS == */
+        .partners-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .partners-banner img{
+           width: 100%;
+        }
+
+        .partners-banner .banner-text {
+            position:absolute;
+            font-family:'NightZone', Arial, sans-serif;
+            font-size: 1.4em;
+            color: var(--banner-text);
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 2%;
+            margin-left:12%;  
+        }
+
+        .partners-slider {
+            display: flex;
+            justify-content: start;
+            margin-bottom: 5%;
+            margin-top: 0;
+        }
+
+        .partners-list {
+            padding: 0 0 0 1%;
+            width: 80%;
+            margin-left: 10%;
+            display: flex;
+            justify-content: start;
+            border: 1px solid red;
+        }
+
+        .partners-list li {
+            margin:0;
+            padding: 1% 0;
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul.partners-list li img {
+            width: 80%;
+        }
+
+        /* == CTA == */
+
+        .register-button {
+            background-color: var(--cta-bg);
+            color: var(--button-bg);
+            font-size: 2em;
+            font-weight: bold;
+            padding: 4% 0;
+            border-radius: 10px;
+        }
+
+        .inner-button {
+            width: 90%;
+            margin-left: 4%;
+            border: 4px solid var(--button-bg);
+            border-radius: 10px;
+            padding: 4% 0   ;
+        }
+
+        .discord {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .discord img {
+            max-width: 80px;
+        }
+
+        .discord p {
+            display: inline;
+            margin-left: -10px;
+        }
+
+        /* == UTILITY == */
+        .hidden {
+            display: none !important;
+        }
+
+
+    </style>
+    <link rel="stylesheet" href="./assets/css/simpleslide.css">
+</head>
+<body class="event">
+    <div class="wrapper">
+        <header class="hero">
+            <img src="./assets/header.png" alt="s4yt" class="hero-img">
+        </header>
+        <!-- QUESTIONS -->
+        <section class="question-section">
+            <article class="question">
+                <div class="initial" id="answer1">
+                    <h2 class="question-title">What is $4YT about?</h2>
+                    <ul class="answer-points">
+                        <li class="answer_point" data-id="1">$4YT is a free to attend scholarship event for high school students all over the world!</li>
+                        <li class="answer_point hidden" data-id="1">It's for High School Students from EVERYWHERE to explore fun questions posed by</li>
+                        <li class="answer_point hidden" data-id="1">Businesses to win $$$ earn Doubl-U-nes to win prizes</li>
+                        <li class="answer_point hidden" data-id="1">Sign-up for a post event meet-ups to learn more about the businesses</li>
+                    </ul>
+                </div>
+                <button class="learn_more learn_more_left dog_right bubble_right" data-bubble-position="right" data-id="1">
+                    <span id="button_text_1">learn more</span>       
+                    <div class="learn_more_wave_right"></div>
+                </button>
+            </article>
+
+            <article class="question">
+                <div class="initial" id="answer2">
+                    <h2 class="question-title">Am I eligible?</h2>
+                    <ul class="answer-points">
+                        <li class="answer_point"  data-id="2">$4YT is a free to attend scholarship event for high school students all over the world!</li>
+                        <li class="answer_point hidden" data-id="2">Yes, if you are in grades 9-12 at the time of the contest!</li>
+                        <li class="answer_point hidden" data-id="2">Students Register or FREE and receive an anonymous ID# to participate</li>
+                    </ul>
+                </div>
+                <button class="learn_more learn_more_right beaver_left bubble_left" data-bubble-position="left" data-id="2">
+                    <span id="button_text_2">learn more</span>       
+                    <div class="learn_more_wave_left"></div>
+                </button>
+            </article>
+
+            <article class="question">
+                <div class="initial" id="answer3">
+                    <h2 class="question-title">When can I attend?</h2>
+                    <ul class="answer-points">
+                        <li class="answer_point"  data-id="3">$4YT is a free to attend scholarship event for high school students all over the world!</li>
+                        <li class="answer_point hidden" data-id="3">It starts at 12:01 AM Sat., Nov 19th and goes to 11:59 PM on Sun Nov 20</li>
+                        <li class="answer_point hidden" data-id="3">Students can drop in and out at any time over the 48 hour event period</li>
+                    </ul>
+                </div>
+                <button class="learn_more learn_more_left peacock_right bubble_right" data-bubble-position="right" data-id="3">
+                    <span id="button_text_3">learn more</span>       
+                    <div class="learn_more_wave_right"></div>
+                </button>
+            </article>
+
+            <article class="question">
+                <div class="initial" id="answer4">
+                    <h2 class="question-title">How Do I Win $$?</h2>
+                    <ul class="answer-points">
+                        <li class="answer_point"  data-id="4">$4YT is a free to attend scholarship event for high school students all over the world!</li>
+                        <li class="answer_point hidden" data-id="4">Students may submit 1 (and only 1) answer to each business question, but may win multiple $$$ awards</li>
+                        <li class="answer_point hidden" data-id="4">All Student identity info and submissions remain anonymous until prizes are determined</li>
+                        <li class="answer_point hidden" data-id="4">Students have 4 years to use $$(FUN-ding) on anything specific that will help foster success in the future</li>
+                    </ul>
+                </div>
+                <button class="learn_more learn_more_right hippo_left bubble_left" data-bubble-position="left" data-id="4">
+                    <span id="button_text_4">learn more</span>
+                    <div class="learn_more_wave_left"></div>
+                </button>
+            </article>
+
+            <article class="question">
+                <div class="initial" id="answer5">
+                    <h2 class="question-title">What are Dubl-U-nes?</h2>
+                    <ul class="answer-points">
+                        <li class="answer_point"  data-id="4">$4YT is a free to attend scholarship event for high school students all over the world!</li>
+                        <li class="answer_point hidden  data-id="5">Dubl-U-nes can be used to win different prizes donated by our Raffle Partners</li>
+                        <li class="answer_point hidden" data-id="5">All registered students receive 3 free Dubl-U-nes</li>
+                        <li class="answer_point hidden" data-id="5">Students assign their Dubl-U-nes to selected raffle items over the course of the event</li>
+                        <li class="answer_point hidden" data-id="5">Students can earn more Dubl-U-nes (once they register for the game) through a variety of social media interactions</li>
+                        <li class="answer_point hidden" data-id="5">Join our Discord to learn more about earning Dubl-U-nes!</li>
+                    </ul>
+                </div>
+                <button class="learn_more learn_more_left goat_right bubble_right" data-bubble-position="right" data-id="5">
+                    <span id="button_text_5">learn more</span>
+                    <div class="learn_more_wave_right"></div>
+                </button>
+            </article>
+        </section>
+        <!-- PARTNERS -->
+        <section class="partners-section">
+            <div class="partners-banner">
+                <img src="./assets/bird_banner_fill.png" alt="partners_banner">
+                <p class="banner-text">Our partners</p>
+            </div>
+            <div class="partners-slider">
+                <ul class="partners-list">
+                    <li class="partner">
+                        <img class="partner-logo" src="http://building-u.com/wp-content/uploads/KnowledgeFlow.png" alt="test">
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- CTA -->
+        <section class="cta-section">
+            <button class="register-button" disabled>
+                <div class="inner-button">
+                    <span>Register<br/>coming soon</span>
+                </div>
+            </button>
+            <div class="discord">
+                <a href="https://discord.gg/rCSCTxDQhU" target="_blank">
+                    <img src="./assets/Discord.png" alt="discord">
+                </a>
+                <p>Join Our Discord!</p>
+            </div>
+        </section>
+    </div>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Learn more buttons
+            $('.learn_more').on('click', function(){
+                const bubblePosition = $(this).data('bubble-position');
+                const id = $(this).data('id');
+                const answer = $('#answer' + id);
+                answer.toggleClass('bubble');
+                answer.toggleClass( bubblePosition === 'right' ? 'bubble-bottom-right' : 'bubble-bottom-left')
+
+                $('.answer_point').each(function(){
+                    if($(this).data('id') === id) {
+                        $(this).toggleClass('hidden');
+                    }                    
+                });
+
+                const buttonText = $('#button_text_' + id).text();
+                $('#button_text_' + id).text( buttonText === "learn more" ? "Ok!" : "learn more");
+            });
+        })
+    </script>
 </body>
 </html>
