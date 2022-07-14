@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
     
     <title>Event</title>
     <style>
@@ -28,8 +31,11 @@
         
 
         .event {
-            background-image: url('./assets/background.png');
-            background-size: 100% 100vh;
+            background-image: url('./assets/bg_mobile.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            font-size: 16px;
+            font-family: 'Raleway', sans-serif;
         }
 
         .event .wrapper {
@@ -61,36 +67,128 @@
 
         /* == QUESTION == */
         .event .initial {
-            transition: 1s all ease;
+            transition: .5s all ease;
         }
         .event .question {
-            /* border: 1px solid red; */
+            border: 1px solid red;
             width: 90%;
-            margin: 2% 5%;
+            margin: 0 5%;
             font-size: 0.6em;
+            position: relative;
         }
 
         .event .question-title {
             margin-top: 2%;
             margin-left: 4%;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .event .cog_right::after {
+            content: '';
+            position: absolute;
+            background-image: url('/assets/cog_right.png');
+            background-size: 40% 40%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35%;
+            height: 70%;
+            top: -8%;
+            left: 80%;
+            border: 1px solid turquoise;
+        }
+
+        .event .instagram_right::after {
+            content: '';
+            position: absolute;
+            background-image: url('/assets/instagram_right.png');
+            background-size: 40% 40%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35%;
+            height: 70%;
+            top: 47%;
+            left: 72%;
+            z-index: -100;
+            border: 1px solid turquoise;
+        }
+
+        .event .island_left::after {
+            content: '';
+            position: absolute;
+            background-image: url('/assets/island_left.png');
+            background-size: 40% 40%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            height: 70%;
+            top: 38%;
+            left: -11%;
+            z-index: -100;
+            border: 1px solid turquoise;
+        }
+
+        .event .whale_right::after {
+            content: '';
+            position: absolute;
+            background-image: url('/assets/whale_right.png');
+            background-size: 40% 40%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35%;
+            height: 70%;
+            top: 28%;
+            left: 73%;
+            z-index: -100;
+            border: 1px solid turquoise;
+        }
+
+        .event .ship_left::after {
+            content: '';
+            position: absolute;
+            background-image: url('/assets/ship_left.png');
+            background-size: 40% 40%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35%;
+            height: 70%;
+            top: 56%;
+            left: -5%;
+            z-index: -100;
+            border: 1px solid turquoise;
         }
 
         /* == ANSWER LIST == */
-        .answer-points {
+        .event .answer-points {
             align-self: flex-start;
             list-style: none;
             padding-top: 5%;
         }
 
-        .answer-points li {
+        .event .answer-points li {
             /* border: 1px solid red; */
             display: flex;
             align-items: center;
             width: 100%;
-            
+            font-size: 0.75rem;
         }
 
-        .answer-points li:before {
+        .event .answer-points li:before {
             display: block;
             flex-shrink: 0;
             width: 25px;
@@ -102,11 +200,11 @@
         }
 
         /* == LEARN MORE == */
-        .question .learn_more {
+        .event .question .learn_more {
             position: relative;
             background-color: var(--button-bg);
             width: 70%;
-            margin: 8% 15%;
+            margin: 8% 15% 4% 15%;
             padding: 3% 0;
             font-size: 0.9rem;
             font-weight: bold;
@@ -114,37 +212,37 @@
             cursor: pointer;           
         }
 
-        .question .bubble_right::before {
+        .event .question .bubble_right::before {
             content: '';
             background: url('/assets/small_speech_bubble.png') no-repeat left;
             background-size: cover;
-            width: 40px;
-            height: 30px;
+            width: 30px;
+            height:20px;
             position: absolute;
             right: 25px;
-            top: -15px;
+            top: -12px;
         }
 
-        .question .bubble_left::before {
+        .event .question .bubble_left::before {
             content: '';
             background: url('/assets/small_speech_bubble_flip.png') no-repeat left;
             background-size: cover;
-            width: 40px;
-            height: 30px;
+            width: 30px;
+            height: 20px;
             position: absolute;
             left: 15px;
-            top: -15px;
+            top: -12px;
         }
 
-        .question .learn_more_left {
+        .event .question .learn_more_left {
             border-left: 2px solid var(--button-border);
         }
 
-        .question .learn_more_right {
+        .event .question .learn_more_right {
             border-right: 2px solid var(--button-border);
         }
 
-        .question .learn_more_wave_right {
+        .event .question .learn_more_wave_right {
             border-bottom: 2px solid var(--button-border);
             position: absolute;
             bottom: 0;
@@ -152,7 +250,7 @@
             width: 90%;
         }
 
-        .question .learn_more_wave_left {
+        .event .question .learn_more_wave_left {
             border-bottom: 2px solid var(--button-border);
             position: absolute;
             bottom: 0;
@@ -160,7 +258,7 @@
             width: 90%;
         }
 
-        .question .dog_right::after {
+        .event .question .dog_right::after {
             content: '';
             background: url('/assets/dog.png') no-repeat right center;
             background-size: cover;
@@ -171,7 +269,7 @@
             top: -15px;            
         }
 
-        .question .beaver_left::after {
+        .event .question .beaver_left::after {
             content: '';
             background: url('/assets/beaver.png') no-repeat left center;
             background-size: cover;
@@ -182,7 +280,7 @@
             top: -15px;            
         }
 
-        .question .hippo_left::after {
+        .event .question .hippo_left::after {
             content: '';
             background: url('/assets/hippo.png') no-repeat left center;
             background-size: cover;
@@ -193,7 +291,7 @@
             top: -12px;            
         }
 
-        .question .peacock_right::after {
+        .event .question .peacock_right::after {
             content: '';
             background: url('/assets/peacock.png') no-repeat right center;
             background-size: cover;
@@ -204,7 +302,7 @@
             top: -15px;            
         }
 
-        .question .goat_right::after {
+        .event .question .goat_right::after {
             content: '';
             background: url('/assets/goat.png') no-repeat right center;
             background-size: cover;
@@ -216,7 +314,7 @@
         }
         
         /* == COMIC BUBBLE == */
-        .bubble {
+        .event .bubble {
             position: relative;
             background: #fff;
             border-radius: 40px;
@@ -224,7 +322,7 @@
             padding: 12px;
         }
 
-        .bubble-bottom-right:before {
+        .event .bubble-bottom-right:before {
             content: "";
             width: 0px;
             height: 0px;
@@ -236,7 +334,7 @@
             right: 86px;
         }
 
-        .bubble-bottom-right:after {
+        .event .bubble-bottom-right:after {
             content: "";
             width: 0px;
             height: 0px;
@@ -248,7 +346,7 @@
             right: 90px;
         }
 
-        .bubble-bottom-left:before {
+        .event .bubble-bottom-left:before {
             content: "";
             width: 0px;
             height: 0px;
@@ -260,7 +358,7 @@
             left: 86px;
         }
 
-        .bubble-bottom-left:after {
+        .event .bubble-bottom-left:after {
             content: "";
             width: 0px;
             height: 0px;
@@ -273,18 +371,19 @@
         }
 
         /* == PARTNERS == */
-        .partners-banner {
+        .event .partners-banner {
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
+            margin-top: 5%;
         }
 
-        .partners-banner img{
+        .event .partners-banner img{
            width: 100%;
         }
 
-        .partners-banner .banner-text {
+        .event .partners-banner .banner-text {
             position:absolute;
             font-family:'NightZone', Arial, sans-serif;
             font-size: 1.4em;
@@ -295,23 +394,23 @@
             margin-left:12%;  
         }
 
-        .partners-slider {
+        .event .partners-slider {
             display: flex;
             justify-content: start;
             margin-bottom: 5%;
             margin-top: 0;
         }
 
-        .partners-list {
+        .event .partners-list {
             padding: 0 0 0 1%;
             width: 80%;
             margin-left: 10%;
             display: flex;
             justify-content: start;
-            border: 1px solid red;
+            /* border: 1px solid red; */
         }
 
-        .partners-list li {
+        .event .partners-list li {
             margin:0;
             padding: 1% 0;
             width: 25%;
@@ -320,13 +419,13 @@
             align-items: center;
         }
 
-        ul.partners-list li img {
+        .event ul.partners-list li img {
             width: 80%;
         }
 
         /* == CTA == */
 
-        .register-button {
+        .event .register-button {
             background-color: var(--cta-bg);
             color: var(--button-bg);
             font-size: 2em;
@@ -335,7 +434,7 @@
             border-radius: 10px;
         }
 
-        .inner-button {
+        .event .inner-button {
             width: 90%;
             margin-left: 4%;
             border: 4px solid var(--button-bg);
@@ -343,29 +442,57 @@
             padding: 4% 0   ;
         }
 
-        .discord {
+        .event .discord {
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .discord img {
+        .event .discord img {
             max-width: 80px;
         }
 
-        .discord p {
+        .event .discord p {
             display: inline;
             margin-left: -10px;
         }
 
         /* == UTILITY == */
-        .hidden {
+        .event .hidden {
             display: none !important;
+        }
+
+        /*== SMARTPHONE LANDSCAPE ==*/
+        @media only screen
+        and (min-device-width: 480px) 
+        and (max-device-width: 855px)
+        and (orientation: landscape) {
+            
+            .event .wrapper {
+                border: 1px solid red;
+            }
+
+            .hero {
+                border: 1px solid blue;
+                width: 80%;
+                margin-left: 10%;
+            }
+
+            .question-section {
+                border: 1px solid green;
+            }
+
+            .event .question {
+            /* border: 1px solid red; */
+                width: 50%;
+                margin-left: 25%;
+                border: 1px solid green;
+            }
+            
         }
 
 
     </style>
-    <link rel="stylesheet" href="./assets/css/simpleslide.css">
 </head>
 <body class="event">
     <div class="wrapper">
@@ -374,7 +501,7 @@
         </header>
         <!-- QUESTIONS -->
         <section class="question-section">
-            <article class="question">
+            <article class="question cog_right">
                 <div class="initial" id="answer1">
                     <h2 class="question-title">What is $4YT about?</h2>
                     <ul class="answer-points">
@@ -390,7 +517,7 @@
                 </button>
             </article>
 
-            <article class="question">
+            <article class="question instagram_right">
                 <div class="initial" id="answer2">
                     <h2 class="question-title">Am I eligible?</h2>
                     <ul class="answer-points">
@@ -405,7 +532,7 @@
                 </button>
             </article>
 
-            <article class="question">
+            <article class="question island_left">
                 <div class="initial" id="answer3">
                     <h2 class="question-title">When can I attend?</h2>
                     <ul class="answer-points">
@@ -420,7 +547,7 @@
                 </button>
             </article>
 
-            <article class="question">
+            <article class="question whale_right">
                 <div class="initial" id="answer4">
                     <h2 class="question-title">How Do I Win $$?</h2>
                     <ul class="answer-points">
@@ -436,7 +563,7 @@
                 </button>
             </article>
 
-            <article class="question">
+            <article class="question ship_left">
                 <div class="initial" id="answer5">
                     <h2 class="question-title">What are Dubl-U-nes?</h2>
                     <ul class="answer-points">
