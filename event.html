@@ -370,6 +370,28 @@
             left: 90px;
         }
 
+        .event .feather_left::after {
+            content: "";
+            background: url('/assets/feather_left.png') no-repeat;
+            background-size: cover;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: -15px;
+            left: -20px;
+        }
+
+        .event .feather_right::after {
+            content: "";
+            background: url('/assets/feather_right.png') no-repeat;
+            background-size: cover;
+            position: absolute;
+            width: 50px;
+            height: 30px;
+            top: -15px;
+            right: -20px;
+        }
+
         /* == PARTNERS == */
         .event .partners-banner {
             display: flex;
@@ -484,8 +506,8 @@
 
             .event .question {
             /* border: 1px solid red; */
-                width: 50%;
-                margin-left: 25%;
+                width: 80%;
+                margin-left: 10%;
                 border: 1px solid green;
             }
             
@@ -501,6 +523,7 @@
         </header>
         <!-- QUESTIONS -->
         <section class="question-section">
+            <!-- What is $4YT about? -->
             <article class="question cog_right">
                 <div class="initial" id="answer1">
                     <h2 class="question-title">What is $4YT about?</h2>
@@ -513,25 +536,25 @@
                 </div>
                 <button class="learn_more learn_more_left dog_right bubble_right" data-bubble-position="right" data-id="1">
                     <span id="button_text_1">learn more</span>       
-                    <div class="learn_more_wave_right"></div>
+                    <div class="learn_more_wave_right feather_left"></div>
                 </button>
             </article>
-
+            <!-- Am I eligible? -->
             <article class="question instagram_right">
                 <div class="initial" id="answer2">
                     <h2 class="question-title">Am I eligible?</h2>
                     <ul class="answer-points">
                         <li class="answer_point"  data-id="2">$4YT is a free to attend scholarship event for high school students all over the world!</li>
                         <li class="answer_point hidden" data-id="2">Yes, if you are in grades 9-12 at the time of the contest!</li>
-                        <li class="answer_point hidden" data-id="2">Students Register or FREE and receive an anonymous ID# to participate</li>
+                        <li class="answer_point hidden" data-id="2">Students Register for FREE and are assigned an anonymous ID# to play</li>
                     </ul>
                 </div>
                 <button class="learn_more learn_more_right beaver_left bubble_left" data-bubble-position="left" data-id="2">
                     <span id="button_text_2">learn more</span>       
-                    <div class="learn_more_wave_left"></div>
+                    <div class="learn_more_wave_left feather_right"></div>
                 </button>
             </article>
-
+            <!-- When can I attend? -->
             <article class="question island_left">
                 <div class="initial" id="answer3">
                     <h2 class="question-title">When can I attend?</h2>
@@ -543,10 +566,10 @@
                 </div>
                 <button class="learn_more learn_more_left peacock_right bubble_right" data-bubble-position="right" data-id="3">
                     <span id="button_text_3">learn more</span>       
-                    <div class="learn_more_wave_right"></div>
+                    <div class="learn_more_wave_right feather_left"></div>
                 </button>
             </article>
-
+            <!-- How Do I Win $$? -->
             <article class="question whale_right">
                 <div class="initial" id="answer4">
                     <h2 class="question-title">How Do I Win $$?</h2>
@@ -559,10 +582,10 @@
                 </div>
                 <button class="learn_more learn_more_right hippo_left bubble_left" data-bubble-position="left" data-id="4">
                     <span id="button_text_4">learn more</span>
-                    <div class="learn_more_wave_left"></div>
+                    <div class="learn_more_wave_left feather_right"></div>
                 </button>
             </article>
-
+            <!-- What are Dubl-U-nes? -->
             <article class="question ship_left">
                 <div class="initial" id="answer5">
                     <h2 class="question-title">What are Dubl-U-nes?</h2>
@@ -577,7 +600,7 @@
                 </div>
                 <button class="learn_more learn_more_left goat_right bubble_right" data-bubble-position="right" data-id="5">
                     <span id="button_text_5">learn more</span>
-                    <div class="learn_more_wave_right"></div>
+                    <div class="learn_more_wave_right feather_left"></div>
                 </button>
             </article>
         </section>
